@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CreativeChronicle | Nghệ thuật của những khoảnh khắc</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root { --ink:#242633; --muted:#687185; --accent:#7958cc; --soft:#f7f6fb; }
+    body { background:var(--soft); color:var(--ink); font-family:system-ui,-apple-system,'Segoe UI',sans-serif; }
+    .brand {font-family:Georgia,serif; font-weight:bold; letter-spacing:-1px; color:var(--ink); text-decoration:none; font-size:1.5rem}
+    .tag {color:var(--accent);font-size:.75rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .heading {font-family:Georgia,serif; font-size:clamp(2rem,4.5vw,3.7rem);line-height:1.1; font-weight:700;max-width:850px}
+    .article-shell {background:white; border:1px solid #eae8f1;border-radius:22px; padding:clamp(18px,4vw,50px);box-shadow:0 12px 40px rgba(30,20,65,.035)}
+    .author-section {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px; padding:22px 0; border-top:1px solid #ebe8f0;border-bottom:1px solid #ebe8f0}
+    .author-identity {display:flex;align-items:center;gap:14px;min-width:0}
+    .author-avatar {width:58px;height:58px;min-width:58px;border-radius:50%;object-fit:cover}
+    .author-details {min-width:0} .author-details h2 {font-size:1rem;margin:0;font-weight:700;overflow-wrap:anywhere}
+    .author-details p {color:var(--muted);font-size:.87rem;margin:4px 0 0}
+    .share-buttons {display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .mosaic-gallery {display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,185px));gap:15px;margin:30px 0}
+    .photo {margin:0;overflow:hidden;border-radius:15px;background:#ddd;min-width:0}
+    .photo img {display:block;width:100%;height:100%;object-fit:cover}
+    .photo-main {grid-row:span 2}
+    .article-copy {font-size:1.08rem;line-height:1.95;color:#4b5265;max-width:790px}
+    .section-title {font-family:Georgia,serif;font-weight:bold}
+    .recommended .card {border:1px solid #eae8f1;border-radius:15px;overflow:hidden;height:100%;transition:transform .2s,box-shadow .2s}
+    .recommended .card:hover {transform:translateY(-3px);box-shadow:0 10px 25px rgba(40,30,70,.09)}
+    .recommended .card img {height:155px;width:100%;object-fit:cover}
+    .recommended .card-title {font-size:1rem;font-weight:700}
+    .muted {color:var(--muted)}
+    @media (max-width: 575.98px) {
+      .mosaic-gallery {grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-rows:210px;gap:12px}
+      .photo-main {grid-row:auto}
+      .share-buttons {width:100%}
+      .share-buttons .btn {flex:1}
+      .article-shell {border-radius:14px}
+    }
+    @media (min-width:576px) and (max-width:767.98px) { .mosaic-gallery {grid-template-rows:repeat(2,minmax(0,150px))} }
+  .report-content h1 {font-size:1.45rem}.report-content h2 {font-size:1.2rem;margin-top:1rem}.report-content p,.report-content li{line-height:1.8}.report-content code{overflow-wrap:anywhere}
+  </style>
+</head>
+<body>
+  <header class="bg-white border-bottom py-3">
+    <div class="container d-flex flex-wrap gap-3 justify-content-between align-items-center">
+      <a class="brand" href="#home">Creative<span style="color:var(--accent)">Chronicle.</span></a>
+      <nav class="d-flex gap-3 flex-wrap small fw-semibold" aria-label="Điều hướng"><a class="link-dark text-decoration-none" href="#story">Bài viết</a><a class="link-dark text-decoration-none" href="#gallery">Thư viện</a><a class="link-dark text-decoration-none" href="#recommended">Đề xuất</a></nav>
+    </div>
+  </header>
+  <main id="home" class="container py-4 py-lg-5">
+    <article id="story" class="article-shell">
+      <p class="tag mb-3">Design / Photography</p>
+      <h1 class="heading mb-3">Nghệ thuật lưu giữ những khoảnh khắc bình dị</h1>
+      <p class="muted mb-4">Góc nhìn mới về màu sắc, ánh sáng và câu chuyện ẩn sau mỗi khung hình.</p>
+      <div class="author-section">
+        <div class="author-identity">
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=180&h=180&fit=crop" alt="Ảnh đại diện tác giả Jane Doe">
+          <div class="author-details"><h2>Jane Doe – Creative Director & Photographer</h2><p>Ngày đăng: 25/10/2026 · 5 phút đọc</p></div>
+        </div>
+        <div class="share-buttons" aria-label="Chia sẻ bài viết"><button class="btn btn-outline-secondary btn-sm" type="button" onclick="shareArticle()">Chia sẻ</button><button class="btn btn-outline-secondary btn-sm" type="button" onclick="copyArticle()">Sao chép link</button></div>
+      </div>
+      <div id="gallery" class="mosaic-gallery" aria-label="Thư viện ảnh nghệ thuật">
+        <figure class="photo photo-main"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1000&h=900&fit=crop" alt="Hồ nước và núi đồi lúc hoàng hôn"></figure>
+        <figure class="photo"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=650&h=450&fit=crop" alt="Ánh nắng xuyên qua tán rừng"></figure>
+        <figure class="photo"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=650&h=450&fit=crop" alt="Phong cảnh thiên nhiên xanh mát"></figure>
+      </div>
+      <div class="article-copy"><p>Mỗi bức ảnh là một lát cắt thời gian. Có những vẻ đẹp nằm ở những điều giản dị: tia nắng lướt qua khung cửa, con đường quen thuộc, hay màu trời thay đổi trước một cơn mưa.</p><p>Thiết kế thị giác không chỉ là sắp xếp các hình khối. Đó là nghệ thuật tạo nhịp điệu giữa các khoảng trống, các tông màu và câu chuyện. Một bố cục tốt giúp người đọc tập trung vào điều quan trọng nhất.</p><p>Trong thư viện này, tấm ảnh lớn tạo điểm nhấn, trong khi hai ảnh nhỏ bổ sung góc nhìn. Khi xem trên điện thoại, các hình được xếp thành một cột để không chồng lấn lên phần nội dung.</p></div>
+    </article>
+    <section id="recommended" class="recommended mt-5" aria-labelledby="rec-title">
+      <div class="d-flex align-items-end justify-content-between mb-3 gap-2"><div><p class="tag mb-1">Khám phá thêm</p><h2 id="rec-title" class="section-title mb-0">Bài viết đề xuất</h2></div><span class="muted small">4 câu chuyện</span></div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3"><div class="card"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=400&fit=crop" alt="Hoa giữa thiên nhiên"><div class="card-body"><small class="tag">Photography</small><h3 class="card-title mt-2">Sức sống của sắc màu</h3><p class="small muted mb-0">Khi thiên nhiên trở thành nguồn cảm hứng.</p></div></div></div>
+        <div class="col-12 col-md-6 col-lg-3"><div class="card"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=600&h=400&fit=crop" alt="Bầu trời đầy sao"><div class="card-body"><small class="tag">Art</small><h3 class="card-title mt-2">Ánh sáng trong bóng tối</h3><p class="small muted mb-0">Tìm vẻ đẹp ở những tương phản tinh tế.</p></div></div></div>
+        <div class="col-12 col-md-6 col-lg-3"><div class="card"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=400&fit=crop" alt="Kiến trúc đương đại"><div class="card-body"><small class="tag">Design</small><h3 class="card-title mt-2">Nhịp điệu của kiến trúc</h3><p class="small muted mb-0">Đường nét, chất liệu và khoảng trống.</p></div></div></div>
+        <div class="col-12 col-md-6 col-lg-3"><div class="card"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=600&h=400&fit=crop" alt="Mặt trời trên đồng cỏ"><div class="card-body"><small class="tag">Inspiration</small><h3 class="card-title mt-2">Một ngày thật chậm</h3><p class="small muted mb-0">Quan sát thế giới bằng sự kiên nhẫn.</p></div></div></div>
+      </div>
+    </section>
+    <!-- Báo cáo và nhật ký AI được gộp trực tiếp trong trang -->
+    <section id="report" class="article-shell mt-4 report-content"><h2 class="section-title mb-3">Báo cáo tái cấu trúc</h2><h1>CreativeChronicle – Báo cáo tái cấu trúc Layout</h1>
+<p>Ở giao diện cũ, <strong>float</strong> được dùng để bố trí ảnh đại diện, thông tin tác giả và nút chia sẻ. Float vốn dành cho nội dung chảy quanh hình ảnh; phần tử float có thể không đóng góp chiều cao vào luồng bố cục thông thường, buộc lập trình viên dùng clearfix hoặc <code>overflow: hidden</code>. Thay thế bằng <strong>Flexbox</strong> giúp các thành phần căn giữa dọc qua <code>align-items: center</code>, tự xuống dòng bằng <code>flex-wrap</code> khi thiếu không gian.</p>
+<p>Gallery cũ sử dụng <strong><code>position: absolute</code></strong> và chiều cao cố định. Các ảnh bị đưa ra khỏi luồng tài liệu nên khung cha không tự tính chiều cao dựa trên ảnh; khi màn hình thu nhỏ dễ xảy ra chồng lấn. <strong>CSS Grid</strong> giải quyết bằng hai cột tỷ lệ <code>2fr 1fr</code>, ảnh lớn dùng <code>grid-row: span 2</code>, có <code>gap</code> và chuyển thành một cột trên mobile. <code>object-fit: cover</code> giữ ảnh cân đối.</p>
+<p>Khu vực đề xuất dùng <strong>Bootstrap Grid</strong> với <code>col-12 col-md-6 col-lg-3</code>: lần lượt 1, 2 và 4 thẻ mỗi hàng. Kết quả là cấu trúc rõ ràng, ít CSS thủ công và dễ bảo trì.</p>
+</section>
+<section id="prompts" class="article-shell mt-4 report-content"><h2 class="section-title mb-3">Nhật ký AI</h2><h1>AI Prompt Log – CreativeChronicle</h1>
+<p>Nhật ký tóm tắt các nội dung đã trao đổi khi chuẩn bị bài thực hành cùng AI. Đây không phải bản ghi nguyên văn của một buổi kiểm thử trình duyệt.</p>
+<h2>1. Float và Flexbox</h2>
+<p><strong>Câu hỏi:</strong> Vì sao float thường cần clearfix, còn Flexbox không?<br />
+<strong>Kết luận:</strong> Float đưa phần tử ra khỏi luồng khối thông thường, có thể làm vùng bao không tự ôm chiều cao. Flex container quản lý trực tiếp việc bố trí và kích thước các flex item. <code>align-items: center</code> giúp căn dọc, <code>flex-wrap: wrap</code> tránh tràn ngang.</p>
+<h2>2. Grid Mosaic</h2>
+<p><strong>Câu hỏi:</strong> Làm sao tạo một ảnh lớn bên trái chiếm hai hàng và hai ảnh nhỏ ở cột phải mà không dùng position absolute?<br />
+<strong>Kết luận:</strong> Dùng <code>display: grid</code>, <code>grid-template-columns: 2fr 1fr</code>, <code>grid-template-rows</code>, <code>gap</code>, và <code>grid-row: span 2</code>. Ở mobile dùng media query chuyển về một cột. <code>object-fit: cover</code> giữ khung hình nhất quán.</p>
+<h2>3. Bootstrap Breakpoints</h2>
+<p><strong>Câu hỏi:</strong> <code>col-12 col-md-6 col-lg-3</code> hiển thị thế nào?<br />
+<strong>Kết luận:</strong> Dưới 768px, mỗi thẻ chiếm toàn hàng; từ 768px có 2 thẻ; từ 992px có 4 thẻ mỗi hàng. Có thể dùng <code>row g-3</code>, <code>card</code>, <code>card-body</code>, <code>d-flex</code>, <code>align-items-center</code>, <code>mb-3</code> để giảm CSS tự viết.</p>
+<h2>4. Kiểm tra cần làm</h2>
+<p>Mở <code>magazine.html</code> trên trình duyệt có Internet, thử viewport 1200px, 768px và 375px. Quan sát thanh tác giả, Gallery và số cột đề xuất. Chưa khẳng định đã thực hiện kiểm thử thực tế trên các thiết bị này.</p>
+</section>
+  </main>
+  <footer class="bg-white border-top text-center py-4 small muted">© 2026 CreativeChronicle · Bài thực hành Flexbox / CSS Grid / Bootstrap</footer>
+  <script>
+    async function copyArticle(){try{await navigator.clipboard.writeText(location.href);alert('Đã sao chép liên kết!')}catch(e){prompt('Sao chép liên kết:',location.href)}}
+    async function shareArticle(){if(navigator.share){try{await navigator.share({title:document.title,url:location.href})}catch(e){}}else{copyArticle()}}
+  </script>
+</body>
+</html>
